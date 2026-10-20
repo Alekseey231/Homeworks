@@ -1,20 +1,20 @@
-struct TaskPrinter : TaskPrinting {
-    private let output: Output
-    
-    init(output: Output) {
-        self.output = output
+struct TaskPrinter: TaskPrinting {
+    private let linePrinter: LinePrinter
+
+    init(linePrinter: LinePrinter) {
+        self.linePrinter = linePrinter
     }
-    
-    func show(_ title: String, _ tasks: [TaskItem]) {
+
+    func print(_ title: String, _ tasks: [TaskItem]) {
         guard !tasks.isEmpty else {
-            output.Show("\(title): отсутствуют.")
+            linePrinter.printLine("\(title): отсутствуют.")
             return
         }
-        
-        output.Show("\(title):")
-        
+
+        linePrinter.printLine("\(title):")
+
         for task in tasks {
-            output.Show("  [\(task.isCompleted ? "V" : " ")] \(task.title) (\(task.category.rawValue))")
+            linePrinter.printLine("  [\(task.isCompleted ? "V" : " ")] \(task.title) (\(task.category.rawValue))")
         }
     }
 }

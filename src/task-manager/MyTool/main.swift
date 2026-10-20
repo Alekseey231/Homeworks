@@ -1,9 +1,9 @@
 import Foundation
 
 let manager = TaskManager()
-let output = ConsoleOutput()
-let printer = TaskPrinter(output: output)
+let linePrinter = ConsoleLinePrinter()
+let printer = TaskPrinter(linePrinter: linePrinter)
 
-let app = App(taskManager: manager, taskPrinter: printer, output: output)
+let app = App(taskManager: manager, taskPrinter: printer, linePrinter: linePrinter)
 
 app.run()
