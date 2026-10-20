@@ -1,6 +1,6 @@
 import Foundation
 
-class TaskManager {
+final class TaskManager {
     private var tasks: [TaskItem] = []
     
     /// Добавить задачу.
