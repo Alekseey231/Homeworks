@@ -8,7 +8,6 @@ struct TaskPrinter : TaskPrinting {
     func show(_ title: String, _ tasks: [TaskItem]) {
         guard !tasks.isEmpty else {
             output.Show("\(title): отсутствуют.")
-            
             return
         }
         
